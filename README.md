@@ -52,12 +52,12 @@ Para exibir o menu de ajuda use:
 Links
 ----
 Você tambem pode baixar o codigo no pacote compactado <br>
-[![backup](https://img.shields.io/badge/backup-tar%20gz-blueviolet)](https://github.com/Gustavo404/wildlist/wildlist)
-[![backup](https://img.shields.io/badge/backup-zip-blue)](https://github.com/Gustavo404/wildlist/wildlist)
+[![backup](https://img.shields.io/badge/backup-tar%20gz-blueviolet)](https://github.com/Gustavo404/wildlist/raw/main/wildlist)
+[![backup](https://img.shields.io/badge/backup-zip-blue)](https://github.com/Gustavo404/wildlist/raw/main/wildlist)
 
 Você tambem pode baixar as WordLists compactadas em .tar.gz aqui: <br>
-[![WD_H4](https://img.shields.io/badge/heavy-tar%20gz-blueviolet)](https://github.com/Gustavo404/wildlist/wd/WD_H4.tar.gz)
-[![WD_L4](https://img.shields.io/badge/light-tar%20gz-blueviolet)](https://github.com/Gustavo404/wildlist/wd/WD_L4.tar.gz)
+[![WD_H4](https://img.shields.io/badge/heavy-tar%20gz-blueviolet)](https://github.com/Gustavo404/wildlist/raw/main/wd/WD_H4.tar.gz)
+[![WD_L4](https://img.shields.io/badge/light-tar%20gz-blueviolet)](https://github.com/Gustavo404/wildlist/raw/main/wd/WD_L4.tar.gz)
 
 depois de compilado, o programa não dependerá mais do pacote clang para gerar as WordLists <br>
 serão adicionadas mais funções no futuro, você mesmo pode modificar o codigo da forma que quiser, ou esperar pelas novas atualizações!
