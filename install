@@ -1,2 +1,4 @@
 #!/bin/bash
 # script de instalação
+apt install tar clang -y
+# tar -xzvf ARQUIVO

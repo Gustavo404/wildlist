@@ -83,6 +83,11 @@ function genHeavy() {
 }
 
 # RECONHECER ENTRADAS
+# esperadas execussões pós ./wildist
+#    || -h		executar wdHelp e fechar
+# -g $arg 		identificar $arg e executar wdGenerate
+# -r $arg 		identificar $arg e executar wdResolve
+# -i 			instalar dependencias e compilar lib/
 while getopts ":hig:r:" arg; do
 	case $arg in
 		h)
@@ -118,14 +123,7 @@ while getopts ":hig:r:" arg; do
 			fi
 	esac
 done
+
 if [[ -z $1 ]]; then
 	wdHelp
 fi
-
-# esperadas execussões pós ./wildist
-#    || -h		executar wdHelp e fechar
-# -g $arg 		identificar $arg e executar wdGenerate
-# -r $arg 		identificar $arg e executar wdResolve
-# -i 			instalar dependencias e compilar lib/
-# 
-

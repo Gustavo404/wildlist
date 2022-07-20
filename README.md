@@ -9,9 +9,9 @@ Depois de compilado, pode rodar apenas com o bash funcionando. Estaremos sempre 
 Dependencias
 ----
 
-O WildList nescessita apenas do _git_ para ser baixado:
+O WildList nescessita apenas do git para ser baixado:
 
-	apt-get install git -y
+	apt-get install git
 
 após isso, o arquivo [install](https://github.com/gustavo404/wildlist/blob/main/install) instalará os pacotes _clang_ e _tar_ via apt <br>
 clique [aqui](https://github.com/gustavo404/wildlist/blob/main/install) para ver mais
@@ -37,7 +37,7 @@ Uso
 Para exibir o menu de ajuda use:
 
 	./wildist -h
-				
+
 ##### Resolve:
 
 	./wildist -r clean			apaga tudo que o programa criou
@@ -51,6 +51,7 @@ Para exibir o menu de ajuda use:
 
 Links
 ----
+
 Você tambem pode baixar o codigo no pacote compactado <br>
 [![backup](https://img.shields.io/badge/backup-tar%20gz-blueviolet)](https://github.com/Gustavo404/wildlist/raw/main/wildlist)
 [![backup](https://img.shields.io/badge/backup-zip-blue)](https://github.com/Gustavo404/wildlist/raw/main/wildlist)
