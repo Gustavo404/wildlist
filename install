@@ -1,4 +1,15 @@
-#!/bin/bash
-# script de instalação
+#!/usr/bin/env bash
+# instalar dependencias (futuramente o ruby)
 apt install tar clang -y
-# tar -xzvf ARQUIVO
+
+# atualizar
+git pull
+
+# o tar preserva as premissões e extrai como a função "extrair aquivos"
+tar -xzvf backup.tar.gz
+
+# usa o wildlist para instalar
+echo "instalando"
+./wildlist -r reinstall >> tmp/out.txt
+rm tmp/* 
+echo "concluido"

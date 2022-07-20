@@ -1,85 +1,83 @@
-#!/bin/bash
-#cliente do Wildist
-
+#!/usr/bin/env bash
 # FUNÇÕES
 function wdVerify() {
-	if [[ -f $1 ]]; then
-		echo "o arquivo existe"
-	else
-		echo "o arquivo não esxiste"
+	if [[ $1 = criado ]]; then
+		if [[ -f $2 ]]; then
+			echo "o arquivo foi criado"
+		else
+			echo "o arquivo não foi criado"
+		fi
+	elif [[ $1 = existe ]]; then
+		if [[ -f $2 ]]; then
+			echo "o arquivo $2 existe"
+		else
+			echo "erro: o arquivo $2 não esxiste"
+		fi
 	fi
 }
 
 function wdResolve() {
 	if [[ $1 = clean ]]; then
-		echo "a função clean depende de todos os codigos funcionando"
+		rm -rf *[!'backup.tar.gz']*
+		wdResolve reinstall
+
 	elif [[ $1 = reinstall ]]; then
-		echo "a função reinstall precisa do backup.tar.gz"
+		tar -xzvf backup.tar.gz
+		chmod +x wildlist
+		rm bin/*
+		clang bin/datasH4.c -o bin/genHeavy
+		clang bin/datasL4.c -o bin/genLight
+
 	elif [[ $1 = pull ]]; then
-		echo "a função pull depende do repositorio no github"
+		git pull
+		wdResolve reinstall
+
 	else
-		echo "erro na função wdResolve"
+		echo "erro: parametro da função wdResolve"
 	fi
 	exit
 }
 
-function wdInstall() {
-	apt install clang tar git
-	tar -xvzf wildist.tar.gz
-	if [[ -f lib/WD_L.c ]] || [[ -f lib/WD_H.c ]]; then
-		clang lib/WD_L.c -o bin/WD_L
-		clang lib/WD_H.c -o bin/WD_H
-	else
-		echo "os arquivos da lib/ estão faltando"
-		read -p "deseja resolver esse problema?[Y/n] " tmp
-			if [[ $tmp = y ]] || [[ -z $tmp ]]; then
-				wdResolve reinstall
-			else
-				echo "finalizando"
-				exit
-			fi
-	fi
-}
 
 function wdBanner() {
 	echo "WILDIST"
-	cat README.md
 }
 
 function wdHelp() {
+	wdBanner
 	cat README.md
-	echo "usage:\n./wildist.sh [functions]"
+	echo "uso: ./wildist.sh [funções] [parametros]"
 	exit
 }
 
-function genLigth() {
+function genLight() {
 	if [[ -f "bin/WD_L" ]]; then
-			./bin/WD_L
+		./bin/WD_L
+	else
+		echo "o arquivo $PWD/bin/WD_L não existe"
+		read -p "deseja resolver esse problema?[Y/n] " tmp
+		if [[ $tmp = y ]] || [[ -z $tmp ]]; then
+			wdResolve reinstall
 		else
-			echo "o arquivo $PWD/bin/WD_L não existe"
-			read -p "deseja resolver esse problema?[Y/n] " tmp
-			if [[ $tmp = y ]] || [[ -z $tmp ]]; then
-				wdResolve reinstall
-			else
-				echo "finalizando"
-			fi
+			echo "finalizando"
 		fi
-	wdVerify out WD/WD_L4.txt
+	fi
+	wdVerify criado wordlists/wl-light.txt
 }
 
 function genHeavy() {
 	if [[ -f "bin/WD_H" ]]; then
-			./bin/WD_H
+		./bin/WD_H
+	else
+		echo "o arquivo $PWD/bin/WD_H não existe"
+		read -p "deseja resolver esse problema?[Y/n] " tmp
+		if [[ $tmp = y ]] || [[ -z $tmp ]]; then
+			wdResolve reinstall
 		else
-			echo "o arquivo $PWD/bin/WD_H não existe"
-			read -p "deseja resolver esse problema?[Y/n] " tmp
-			if [[ $tmp = y ]] || [[ -z $tmp ]]; then
-				wdResolve reinstall
-			else
-				echo "finalizando"
-			fi
+			echo "finalizando"
 		fi
-	wdVerify out WD/WD_H4.txt
+	fi
+	wdVerify criado wordlists/wl-heavy.txt
 }
 
 # RECONHECER ENTRADAS
@@ -94,19 +92,18 @@ while getopts ":hig:r:" arg; do
 			wdHelp
 			;;
 		i)
-			wdInstall
+			wdResolve reinstall
 			exit
 			;;
 		g)
 			gen="${OPTARG}"
 			if [[ $gen = heavy ]]; then
 				genHeavy
-			elif [[ $gen = ligth ]]; then
-				genLigth
+			elif [[ $gen = light ]]; then
+				genLight
 			else
-				echo "o tipo de WD fornecida não existe!"
-				echo $gen
 				wdHelp
+				echo "o tipo de wordlist $gen não existe"
 			fi
 			;;
 		r)
@@ -118,8 +115,8 @@ while getopts ":hig:r:" arg; do
 			elif [[ res = pull ]]; then
 				wdResolve pull
 			else
-				echo "a função resolve fornecida não existe!"
 				wdHelp
+				echo "a função resolve $res não existe!"
 			fi
 	esac
 done

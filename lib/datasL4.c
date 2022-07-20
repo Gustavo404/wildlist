@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+// cores
 #define ANSI_COLOR_GREEN  "\x1b[32m"
 #define ANSI_COLOR_YELLOW  "\x1b[33m"
 #define ANSI_COLOR_RESET  "\x1b[0m"
@@ -23,9 +24,9 @@ int main()
 
   printf(ANSI_COLOR_YELLOW " [!] GERANDO \n" ANSI_COLOR_RESET);
   
-  resul = fopen("WD_L4.txt", "w");
+  resul = fopen("wl-light.txt", "w");
 
-  for (aa = 1850; aa < 2050; aa++) // Data minima e maxima
+  for (aa = 1900; aa < 2030; aa++)
     for (mm = 1; mm < 13; mm ++)
       for ( dd = 1; dd < 32; dd++)
       {

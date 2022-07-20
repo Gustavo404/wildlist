@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+// cores
 #define ANSI_COLOR_GREEN  "\x1b[32m"
 #define ANSI_COLOR_YELLOW  "\x1b[33m"
 #define ANSI_COLOR_RESET  "\x1b[0m"
@@ -23,15 +24,15 @@ int main()
   
   printf(ANSI_COLOR_YELLOW " [!] GERANDO \n" ANSI_COLOR_RESET);
   
-  resul = fopen("WD_H4.txt", "w");
+  resul = fopen("wl-heavy.txt", "w");
   
-  for (aa = 0000; aa < 3000; aa++) // Data minima e maxima
+  for (aa = 0000; aa < 3000; aa++)
     for (mm = 1; mm < 13; mm ++)
       for ( dd = 1; dd < 32; dd++)
       {
-        fprintf(resul, "%02d%02d%02d\n", aa, mm, dd);// 2022/12/31
-        fprintf(resul, "%02d%02d%02d\n", dd, mm, aa);// 31/12/2022
-        fprintf(resul, "%02d%02d%02d\n", mm, dd, aa);// 12/31/2022
+        fprintf(resul, "%02d%02d%02d\n", aa, mm, dd);// 20221231
+        fprintf(resul, "%02d%02d%02d\n", dd, mm, aa);// 31122022
+        fprintf(resul, "%02d%02d%02d\n", mm, dd, aa);// 12312022
 
         fprintf(resul, "%02d-%02d-%02d\n", aa, mm, dd);// 2022-12-31
         fprintf(resul, "%02d-%02d-%02d\n", dd, mm, aa);// 21-12-2022
@@ -41,9 +42,9 @@ int main()
         fprintf(resul, "%02d/%02d/%02d\n", dd, mm, aa);// 31/12/2022
         fprintf(resul, "%02d/%02d/%02d\n", mm, dd, aa);// 12/31/2022
 
-        fprintf(resul, "%02d\\%02d\\%02d\n", aa, mm, dd);// 2022\12\31
-        fprintf(resul, "%02d\\%02d\\%02d\n", dd, mm, aa); // 31\12\2022
-        fprintf(resul, "%02d\\%02d\\%02d\n", mm, dd, aa); // 12\31\2022
+        fprintf(resul, "%02d\\%02d\\%02d\n", aa, mm, dd);// 2022\\12\\31
+        fprintf(resul, "%02d\\%02d\\%02d\n", dd, mm, aa); // 31\\12\\2022
+        fprintf(resul, "%02d\\%02d\\%02d\n", mm, dd, aa); // 12\\31\\2022
       }
   printf(ANSI_COLOR_GREEN " [!] CONCLUIDO \n" ANSI_COLOR_RESET);
   fclose(resul);
