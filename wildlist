@@ -25,8 +25,8 @@ function wdResolve() {
 		tar -xzvf backup.tar.gz
 		chmod +x wildlist
 		rm bin/*
-		clang bin/datasH4.c -o bin/genHeavy
-		clang bin/datasL4.c -o bin/genLight
+		clang lib/datasH4.c -o bin/genHeavy
+		clang lib/datasL4.c -o bin/genLight
 
 	elif [[ $1 = pull ]]; then
 		git pull
