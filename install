@@ -10,6 +10,5 @@ tar -xzvf backup.tar.gz
 
 # usa o wildlist para instalar
 echo "instalando"
-./wildlist -r reinstall >> tmp/out.txt
-rm tmp/* 
+./wildlist -r reinstall
 echo "concluido"
