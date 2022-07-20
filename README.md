@@ -9,7 +9,7 @@ Depois de compilado, pode rodar apenas com o bash funcionando. Estaremos sempre 
 Dependencias
 ----
 
-O WildList nescessita apenas do git para ser baixado:
+O WildList nescessita apenas do _git_ para ser baixado:
 
 	apt-get install git -y
 
